@@ -30,7 +30,11 @@ jobs:
 
       - name: Build corkscrew 
         run: |
-          pwd
+          cd corkscrew
+          autoreconf --install
+          ./configure
+          make
+          make install
           Get-ChildItem -Path . -Recurse
           
       - name: Create Release
