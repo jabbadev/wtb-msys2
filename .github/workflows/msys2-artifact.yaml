@@ -1,0 +1,36 @@
+name: Build Msys2 Artifact
+run-name: ${{ github.actor }} Build Msys artifact.
+on:
+  push:
+    tags:
+    - "*"
+jobs:
+  setup:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: MSYS2 setup
+        uses: msys2/setup-msys2@v2
+        with:
+          update: true
+          install: >-
+            make
+
+      - name: Build Corkscrew 
+        run: |
+          pwd
+          ls
+      - name: Create Release
+        id: create_release
+        uses: ncipollo/release-action@v1
+        with:
+          tag_name: ${{ github.ref }}
+          name: wtb-scoop.${{ github.ref }}.zip
+          artifacts: "artifact/wtp-scoop.zip"
+      
