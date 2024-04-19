@@ -20,10 +20,20 @@ jobs:
           install: >-
             make
 
-      - name: Build Corkscrew 
+      - name: Clone corkscrew
+        uses: GuillaumeFalourd/clone-github-repo-action@v2.3
+        with:
+          depth: 1
+          branch: 'main'
+          owner: 'bryanpkc'
+          repository: 'corkscrew'
+
+      - name: Build corkscrew 
         run: |
           pwd
           ls
+          Get-ChildItem -Path . -Recurse
+          
       - name: Create Release
         id: create_release
         uses: ncipollo/release-action@v1
