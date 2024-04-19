@@ -19,6 +19,7 @@ jobs:
           update: true
           install: >-
             make
+            autotools
 
       - name: Clone corkscrew
         uses: GuillaumeFalourd/clone-github-repo-action@v2.3
@@ -28,7 +29,8 @@ jobs:
           owner: 'bryanpkc'
           repository: 'corkscrew'
 
-      - name: Build corkscrew 
+      - name: Build corkscrew
+        shell: msys2 {0}
         run: |
           cd corkscrew
           autoreconf --install
