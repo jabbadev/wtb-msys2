@@ -20,6 +20,7 @@ jobs:
           install: >-
             make
             autotools
+            gcc
 
       - name: Clone corkscrew
         uses: GuillaumeFalourd/clone-github-repo-action@v2.3
