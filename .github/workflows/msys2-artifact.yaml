@@ -31,7 +31,6 @@ jobs:
       - name: Build corkscrew 
         run: |
           pwd
-          ls
           Get-ChildItem -Path . -Recurse
           
       - name: Create Release
