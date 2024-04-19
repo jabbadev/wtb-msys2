@@ -1,9 +1,7 @@
 name: Build Msys2 Artifact
 run-name: ${{ github.actor }} Build Msys artifact.
-on:
-  push:
-    tags:
-    - "*"
+on: push
+
 jobs:
   setup:
     runs-on: windows-latest
