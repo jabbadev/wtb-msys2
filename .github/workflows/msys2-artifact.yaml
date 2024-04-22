@@ -17,7 +17,7 @@ jobs:
         uses: msys2/setup-msys2@v2
         with:
           update: true
-          location: ${{ env.HOME }}
+          location: D:\
           install: >-
             make
             autotools
@@ -42,12 +42,11 @@ jobs:
       
       - name: Create package
         run: |
-          echo 'debug' ${{ env.HOME }}
-          ls ${{ env.HOME }}
+          ls D:\
           echo "debug end"
           New-Item -Path 'artifact' -ItemType Directory
           $msys2_zip = "artifact\wtp-msys2.zip"
-          $msys2_path =${{ env.HOME }}
+          $msys2_path = D:\msys64
           Compress-Archive -Path $msys2_path -D $msys2_zip
           
       - name: Create Release
