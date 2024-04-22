@@ -35,6 +35,7 @@ jobs:
         run: |
           pwd
           ls -la
+          type gcc
           cd corkscrew
           autoreconf --install
           ./configure
