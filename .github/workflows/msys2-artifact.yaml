@@ -42,6 +42,9 @@ jobs:
       
       - name: Create package
         run: |
+          echo 'debug' ${{ env.HOME }}
+          ls ${{ env.HOME }}
+          echo "debug end"
           New-Item -Path 'artifact' -ItemType Directory
           $msys2_zip = "artifact\wtp-msys2.zip"
           $msys2_path =${{ env.HOME }}
