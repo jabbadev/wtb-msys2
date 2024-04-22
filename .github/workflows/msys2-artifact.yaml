@@ -45,9 +45,7 @@ jobs:
           ls D:\
           echo "debug end"
           New-Item -Path 'artifact' -ItemType Directory
-          $msys2_zip = "artifact\wtp-msys2.zip"
-          $msys2_path = D:\msys64
-          Compress-Archive -Path $msys2_path -D $msys2_zip
+          Compress-Archive -Path D:\msys64 -D artifact\wtp-msys2.zip
           
       - name: Create Release
         id: create_release
