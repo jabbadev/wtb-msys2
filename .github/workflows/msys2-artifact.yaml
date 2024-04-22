@@ -39,6 +39,13 @@ jobs:
           make
           make install
           Get-ChildItem -Path . -Recurse
+      
+      - name: Create package
+        run: |
+          New-Item -Path 'artifact' -ItemType Directory
+          $msys2_zip = "artifact\wtp-msys2.zip"
+          $msys2_path = $HOME + "\msys2"
+          Compress-Archive -Path $msys2_path -D $msys2_zip
           
       - name: Create Release
         id: create_release
@@ -46,5 +53,5 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           name: wtb-scoop.${{ github.ref }}.zip
-          artifacts: "artifact/wtp-scoop.zip"
+          artifacts: "artifact/wtp-mysys2.zip"
       
