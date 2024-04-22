@@ -1,6 +1,9 @@
 name: Build Msys2 Artifact
 run-name: ${{ github.actor }} Build Msys artifact.
-on: push
+on:
+  push:
+    tags:
+    - "*"
 
 jobs:
   setup:
@@ -42,8 +45,6 @@ jobs:
       
       - name: Create package
         run: |
-          ls D:\
-          echo "debug end"
           New-Item -Path 'artifact' -ItemType Directory
           Compress-Archive -Path D:\msys64 -D artifact\wtp-msys2.zip
           
@@ -53,5 +54,5 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           name: wtb-scoop.${{ github.ref }}.zip
-          artifacts: "artifact/wtp-mysys2.zip"
+          artifacts: "artifact/wtp-msys2.zip"
       
