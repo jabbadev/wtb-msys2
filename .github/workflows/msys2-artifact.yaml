@@ -43,7 +43,7 @@ jobs:
         run: |
           New-Item -Path 'artifact' -ItemType Directory
           $msys2_zip = "artifact\wtp-msys2.zip"
-          $msys2_path = "/msys64"
+          $msys2_path = "c:\\msys64"
           Compress-Archive -Path $msys2_path -D $msys2_zip
           
       - name: Create Release
