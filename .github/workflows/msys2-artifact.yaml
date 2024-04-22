@@ -33,9 +33,6 @@ jobs:
       - name: Build corkscrew
         shell: msys2 {0}
         run: |
-          pwd
-          ls -la
-          type gcc
           cd corkscrew
           autoreconf --install
           ./configure
@@ -46,7 +43,7 @@ jobs:
         run: |
           New-Item -Path 'artifact' -ItemType Directory
           $msys2_zip = "artifact\wtp-msys2.zip"
-          $msys2_path = $HOME + "\msys2"
+          $msys2_path = $HOME + "\msys64"
           Compress-Archive -Path $msys2_path -D $msys2_zip
           
       - name: Create Release
