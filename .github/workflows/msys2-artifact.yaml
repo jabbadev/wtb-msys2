@@ -33,6 +33,8 @@ jobs:
       - name: Build corkscrew
         shell: msys2 {0}
         run: |
+          pwd
+          ls -la
           cd corkscrew
           autoreconf --install
           ./configure
