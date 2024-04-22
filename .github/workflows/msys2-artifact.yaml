@@ -17,6 +17,7 @@ jobs:
         uses: msys2/setup-msys2@v2
         with:
           update: true
+          location: ${HOME}
           install: >-
             make
             autotools
@@ -43,7 +44,7 @@ jobs:
         run: |
           New-Item -Path 'artifact' -ItemType Directory
           $msys2_zip = "artifact\wtp-msys2.zip"
-          $msys2_path = "c:\\msys64"
+          $msys2_path = $HOME + "\msys64"
           Compress-Archive -Path $msys2_path -D $msys2_zip
           
       - name: Create Release
