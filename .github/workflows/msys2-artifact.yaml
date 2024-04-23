@@ -43,6 +43,13 @@ jobs:
           make
           make install
       
+      - name: Minimize Software
+        shell: msys2 {0}
+        run: |
+          pacman -Qe
+          pacman -Qent
+          pacman -Rs gcc make perl
+
       - name: Create package
         run: |
           New-Item -Path 'artifact' -ItemType Directory
