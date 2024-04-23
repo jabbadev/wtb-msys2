@@ -50,7 +50,7 @@ jobs:
           echo "--------------------------"
           pacman -Qent
           echo "--------------------------"
-          pacman -Rs gcc autotools make
+          pacman --noconfirm -Rs gcc autotools make
 
       - name: Create package
         run: |
