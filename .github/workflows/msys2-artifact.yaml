@@ -47,8 +47,12 @@ jobs:
         shell: msys2 {0}
         run: |
           pacman -Qe
+          echo "--------------------------"
           pacman -Qent
-          pacman -Rs gcc make perl
+          echo "--------------------------"
+          pacman -Sg base
+          echo "--------------------------"
+          pacman -Rs gcc make
 
       - name: Create package
         run: |
